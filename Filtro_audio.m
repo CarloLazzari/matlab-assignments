@@ -1,6 +1,5 @@
 function Filtro_audio
 
-
 %% Lettura campioni
 % provo con un formato FLAC?
 filename='Sea.mp3';
@@ -27,8 +26,9 @@ gHP = 1-gLP;
 A = 1;
 C = 2;
 D = 3;
-g3B = 2*A*B*sinc(B*(tempoFiltro-T/2)).*rectpuls((tempoFiltro-T/2)/T).*cos(2*pi*f0*(tempoFiltro-T/2)) + 2*C*B*sinc(B*(tempoFiltro-T/2)).*rectpuls((tempoFiltro-T/2)/T).*cos(2*pi*2*f0*(tempoFiltro-T/2)) + 2*D*B*sinc(B*(tempoFiltro-T/2)).*rectpuls((tempoFiltro-T/2)/T).*cos(2*pi*3*f0*(tempoFiltro-T/2));
-
+g3B = 2*A*B*sinc(B*(tempoFiltro-T/2)).*rectpuls((tempoFiltro-T/2)/T).*cos(2*pi*f0*(tempoFiltro-T/2)) 
+    + 2*C*B*sinc(B*(tempoFiltro-T/2)).*rectpuls((tempoFiltro-T/2)/T).*cos(2*pi*2*f0*(tempoFiltro-T/2)) 
+    + 2*D*B*sinc(B*(tempoFiltro-T/2)).*rectpuls((tempoFiltro-T/2)/T).*cos(2*pi*3*f0*(tempoFiltro-T/2));
 
 %% Uscita filtrata
 w = conv(g3B,x)*tempoCampionamento;
@@ -54,7 +54,6 @@ set(tmp,'FontSize',12);
 temp=legend('x(t)', 'A\cdot{w(t)}');
 set(tmp,'FontSize',10);
 axis([0 20 -1.2*max(abs(x)) 1.2*max(abs(x)) ]);
-
 
 %% Calcolo della trasformata di Fourier dell'ingresso
 lunghezzaFft=2^nextpow2(length(x));
